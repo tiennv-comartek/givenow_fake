@@ -1,0 +1,27 @@
+query getAllProjects{
+  allProjects{
+     name,
+      _id,
+      status,
+      startDate,
+      endDate,
+      targetAmount,
+      currentAmount,
+      slug,
+      createdAt
+      photoUrl,
+      status,
+      imageIds,
+      avatarImageId
+      avatar{
+        fileOriginUrl
+      }
+      album{
+        fileOriginUrl
+      }
+      category{
+        _id,
+        name
+      }
+  }
+}

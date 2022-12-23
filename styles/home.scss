@@ -1,0 +1,235 @@
+.slick {
+  .slick-slider {
+    .slick-slide {
+      position: relative;
+
+      .text {
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-weight: 600;
+        opacity: 1;
+        animation: fade 4s linear;
+      }
+    }
+    .slick-dots {
+      bottom: 5%;
+      li {
+        button:before {
+          font-size: 10px;
+          color: white;
+        }
+      }
+      .slick-active {
+        button:before {
+          color: red;
+        }
+      }
+    }
+  }
+}
+a {
+  &:hover {
+    color: red;
+    font-weight: 600;
+  }
+}
+@keyframes fade {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+//slider-project
+.slider-project {
+  .slick-next {
+    &:before {
+      font-size: 30px;
+      content: "\232A";
+      color: rgba(0, 0, 0, 0.4);
+    }
+  }
+  .slick-prev {
+    &:before {
+      font-size: 30px;
+      content: "\2329";
+      color: rgba(0, 0, 0, 0.4);
+    }
+  }
+  .project {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 8px;
+    border-radius: 7px;
+    .waper_img {
+      position: relative;
+      padding-bottom: 75%;
+      .waper_logo {
+        border-radius: 50%;
+        position: absolute;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        width: 50px;
+        height: 50px;
+        bottom: -20px;
+        z-index: 2;
+        .logo_fund {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+        }
+      }
+      .image_project {
+        border-top-right-radius: 7px;
+        border-top-left-radius: 7px;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 1;
+      }
+      .category {
+        z-index: 2;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+      }
+    }
+    .description {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      &:hover {
+        color: red;
+      }
+    }
+  }
+  .slick-slide {
+    padding: 8px;
+  }
+}
+//fund
+.list-fund {
+  .slick-slide {
+    padding: 8px;
+    border-radius: 7px;
+  }
+  .wrap-fund {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 8px;
+    .wrap_image {
+      position: relative;
+      padding-bottom: 50%;
+      .img_fund {
+        left: 50%;
+        transform: translate(-50%, 0%);
+        height: 100%;
+        width: 50%;
+        border-radius: 50%;
+        position: absolute;
+      }
+    }
+  }
+}
+
+.wrap_stats {
+  position: relative;
+  padding-bottom: 56%;
+  .stats {
+    .img_stats {
+      opacity: 0.2;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+  }
+  .title {
+    position: absolute;
+    top: 35%;
+    text-align: center;
+    width: 100%;
+  }
+  .list_stats {
+    position: absolute;
+    top: 45%;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+//club
+.slider-club {
+  .slick-slide {
+    padding: 8px;
+  }
+  .slick-dots {
+    li {
+      button:before {
+        font-size: 8px;
+      }
+    }
+    .slick-active {
+      button {
+        &::before {
+          color: red;
+        }
+      }
+    }
+  }
+  .club {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 8px;
+    border-radius: 7px;
+    .wrap_image {
+      position: relative;
+      padding-bottom: 50%;
+      .img_club {
+        left: 50%;
+        transform: translate(-50%, 0%);
+        height: 60%;
+        width: 30%;
+        border-radius: 50%;
+        border: 1px solid black;
+        position: absolute;
+      }
+      .title {
+        width: 100%;
+        position: absolute;
+        text-align: center;
+        top: 70%;
+      }
+    }
+  }
+}
+
+//footer
+.footer {
+  background-color: red;
+
+  .logo_footer {
+    max-width: 100px;
+  }
+}
+
+.menu_outline {
+  display: none;
+}
+.menu_horizontal {
+  display: none;
+}
+
+@media only screen and (max-width: 1070px) {
+  .waper_menu {
+    .menu {
+      .menu_function {
+        display: none;
+      }
+      .menu_outline {
+        display: block;
+      }
+    }
+  }
+  .menu_horizontal {
+    display: block;
+  }
+}

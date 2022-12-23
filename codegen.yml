@@ -1,0 +1,16 @@
+overwrite: true
+schema: "https://api.givenow.viziple.com/graphql"
+documents: "**/*.graphql"
+generates:
+  graphql/generated/index.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-query
+    config:
+      useTypeImports: true
+      #      omitOperationSuffix: true
+      namingConvention: pascal-case#pascalCase
+      fetcher: graphql-request
+      #      fetcher: src/graphql/fetcher/graphql-fetcher#fetcher
+      isReactHook: true
