@@ -1,32 +1,33 @@
+import env from "../configs/env";
 
-import env from "@/configs/env";
-  
+export function formatPrice(price: number) {
+  // format number 1000000 to 1,234,567
+  return (
+    price
+      .toString()
+      .replace(/\D/g, "")
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "đ"
+  );
+}
 
-  export function formatPrice(price: number) {
-    // format number 1000000 to 1,234,567
-    return price.toString().replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ".")+'đ';
+export const checkRegexEmail = (str: string) => {
+  const reg =
+    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  if (reg.test(str)) {
+    return true;
+  } else {
+    return false;
   }
+};
 
-  export const checkRegexEmail = (str: string) => {
-    const reg =
-      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (reg.test(str)) {
-      return true;
-    } else {
-      return false;
-    }
-  };
+export function toFixedPrice(price: number, toFixed?: number) {
+  return price.toFixed(!isNaN(toFixed) ? toFixed : 2);
+}
 
+export function getFileUrl(url?: string) {
+  return env.assetsEndPoint + url;
+}
 
-  export function toFixedPrice(price: number, toFixed?: number) {
-    return price.toFixed(!isNaN(toFixed) ? toFixed : 2);
-  }
- 
-  export function getFileUrl(url?: string) {
-    return env.assetsEndPoint + url;
-  }
-
-  
 /**
  * use when you need to separate number with ','
  * @param number number you need to separate
@@ -73,11 +74,10 @@ export const numberParser = (value: string | undefined, decimalLength = 2) => {
   return Number(value?.toString().replaceAll(".", "") || undefined);
 };
 
-
 export const getProjectImageV1Url = (url: string) => {
-  return `${env.projectImageUrl}/${url}`
-}
+  return `${env.projectImageUrl}/${url}`;
+};
 
 export const getProjectV1Url = (url: string) => {
-  return `${env.projectUrl}/${url}`
-}
+  return `${env.projectUrl}/${url}`;
+};
