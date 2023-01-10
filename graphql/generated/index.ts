@@ -2211,15 +2211,17 @@ export type VnPaySetting = {
   url: Scalars['String'];
 };
 
-export type GetAllProjectsQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetAllProjectsQueryVariables = Exact<{
+  status?: InputMaybe<ProjectV1Status>;
+}>;
 
 
 export type GetAllProjectsQuery = { __typename?: 'Query', allProjects: Array<{ __typename?: 'ProjectV1', name: string, _id: string, status: ProjectV1Status, startDate?: any | null, endDate?: any | null, targetAmount: number, currentAmount?: number | null, slug?: string | null, createdAt: any, photoUrl?: string | null, imageIds?: Array<string> | null, avatarImageId?: string | null, avatar?: { __typename?: 'Image', fileOriginUrl: string } | null, album?: Array<{ __typename?: 'Image', fileOriginUrl: string }> | null, category?: { __typename?: 'ProjectV1Category', _id: string, name: string } | null }> };
 
 
 export const GetAllProjectsDocument = `
-    query getAllProjects {
-  allProjects {
+    query getAllProjects($status: ProjectV1Status) {
+  allProjects(status: $status) {
     name
     _id
     status

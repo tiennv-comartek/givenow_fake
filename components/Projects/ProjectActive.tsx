@@ -1,7 +1,11 @@
 import React from "react";
+import { ProjectV1Status } from "../../graphql/generated";
+import { useGetAllProject } from "../../hooks/useGetAllProject";
 import ProjectPage from "./ProjectPage";
 
 function ProjectActive() {
+  const { data, isLoading } = useGetAllProject(ProjectV1Status.Publish);
+
   return (
     <>
       <div className="text-center my-20">
@@ -10,7 +14,7 @@ function ProjectActive() {
         </div>
         <div className="">Hãy lựa chọn dự án mà bạn quan tâm nhất</div>
       </div>
-      <ProjectPage />
+      <ProjectPage data={data} />
     </>
   );
 }
